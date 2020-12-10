@@ -2,20 +2,23 @@ package class01;
 
 import java.util.Arrays;
 
-public class Code04_InsertionSort {
+public class Code04_SelectionSort {
 
-	public static void insertionSort(int[] arr) {
+	public static void selectionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
-			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-				swap(arr, j, j + 1);
+		for (int i = 0; i < arr.length - 1; i++) { 
+			int minIndex = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				if(arr[j] < arr[minIndex]) {
+					minIndex = j;
+				}
 			}
+			swap(arr, i, minIndex);
 		}
 	}
 
-	// i和j,数交换
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
 		arr[i] = arr[j];
@@ -29,13 +32,13 @@ public class Code04_InsertionSort {
 
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
-		// Math.random() ->  [0,1) 所有的小数，等概率返回一个
-		// Math.random() * N -> [0,N) 所有小数，等概率返回一个
-		// (int)(Math.random() * N) -> [0,N-1] 所有的整数，等概率返回一个
-		int[] arr = new int[(int) ((maxSize + 1) * Math.random())]; // 长度随机 
+		// Math.random() [0,1)
+		// Math.random() * N [0,N)
+		// (int)(Math.random() * N) [0, N-1]
+		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int) ((maxValue + 1) * Math.random()) 
-					- (int) (maxValue * Math.random());
+			// [-? , +?]
+			arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
 		}
 		return arr;
 	}
@@ -85,18 +88,18 @@ public class Code04_InsertionSort {
 	// for test
 	public static void main(String[] args) {
 		int testTime = 500000;
-		int maxSize = 100; // 随机数组的长度0～100
-		int maxValue = 100;// 值：-100～100
+		int maxSize = 100;
+		int maxValue = 100;
 		boolean succeed = true;
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			insertionSort(arr1);
+			selectionSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
-				// 打印arr1
-				// 打印arr2
 				succeed = false;
+				printArray(arr1);
+				printArray(arr2);
 				break;
 			}
 		}
@@ -104,7 +107,7 @@ public class Code04_InsertionSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		insertionSort(arr);
+		selectionSort(arr);
 		printArray(arr);
 	}
 

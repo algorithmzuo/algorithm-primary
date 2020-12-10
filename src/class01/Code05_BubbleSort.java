@@ -2,23 +2,22 @@ package class01;
 
 import java.util.Arrays;
 
-public class Code02_SelectionSort {
+public class Code05_BubbleSort {
 
-	public static void selectionSort(int[] arr) {
+	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int i = 0; i < arr.length - 1; i++) { 
-			int minIndex = i;
-			for (int j = i + 1; j < arr.length; j++) {
-				if(arr[j] < arr[minIndex]) {
-					minIndex = j;
+		for (int end = arr.length - 1; end > 0; end--) {
+			for (int i = 0; i < end; i++) {
+				if (arr[i] > arr[i + 1]) {
+					swap(arr, i, i + 1);
 				}
 			}
-			swap(arr, i, minIndex);
 		}
 	}
 
+	// 交换arr的i和j位置上的值
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
 		arr[i] = arr[j];
@@ -32,12 +31,8 @@ public class Code02_SelectionSort {
 
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
-		// Math.random() [0,1)
-		// Math.random() * N [0,N)
-		// (int)(Math.random() * N) [0, N-1]
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
-			// [-? , +?]
 			arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
 		}
 		return arr;
@@ -94,12 +89,10 @@ public class Code02_SelectionSort {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			selectionSort(arr1);
+			bubbleSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
-				printArray(arr1);
-				printArray(arr2);
 				break;
 			}
 		}
@@ -107,7 +100,7 @@ public class Code02_SelectionSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		selectionSort(arr);
+		bubbleSort(arr);
 		printArray(arr);
 	}
 

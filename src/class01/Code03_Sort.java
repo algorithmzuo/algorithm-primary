@@ -1,6 +1,6 @@
 package class01;
 
-public class Code07_Sort {
+public class Code03_Sort {
 
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[j];

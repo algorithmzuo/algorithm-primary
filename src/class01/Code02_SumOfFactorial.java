@@ -1,6 +1,6 @@
 package class01;
 
-public class Code01_SumOfFactorial {
+public class Code02_SumOfFactorial {
 
 	public static long f1(int N) {
 		long ans = 0;

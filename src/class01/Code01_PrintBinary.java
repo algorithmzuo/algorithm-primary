@@ -1,6 +1,6 @@
 package class01;
 
-public class Code06_PrintB {
+public class Code01_PrintBinary {
 
 	public static void print(int num) {
 		for (int i = 31; i >= 0; i--) {
