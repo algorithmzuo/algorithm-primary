@@ -1,6 +1,6 @@
 package class02;
 
-public class Code05_PreSum {
+public class Code01_PreSum {
 
 	public static class RangeSum1 {
 
