@@ -29,7 +29,7 @@ public class Code01_PreSum {
 			preSum = new int[N];
 			preSum[0] = array[0];
 			for (int i = 1; i < N; i++) {
-				preSum[i] = preSum[i + 1] + array[i];
+				preSum[i] = preSum[i - 1] + array[i];
 			}
 		}
 
