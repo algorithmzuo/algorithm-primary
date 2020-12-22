@@ -1,8 +1,8 @@
-package class02;
+package class03;
 
 import java.util.Arrays;
 
-public class Code04_BSExist {
+public class Code01_BSExist {
 
 	public static boolean exist(int[] sortedArr, int num) {
 		if (sortedArr == null || sortedArr.length == 0) {

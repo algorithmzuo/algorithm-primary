@@ -1,6 +1,6 @@
-package class02;
+package class03;
 
-public class Code07_BSAwesome {
+public class Code04_BSAwesome {
 
 	public static int getLessIndex(int[] arr) {
 		if (arr == null || arr.length == 0) {
