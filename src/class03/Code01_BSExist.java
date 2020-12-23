@@ -4,38 +4,36 @@ import java.util.Arrays;
 
 public class Code01_BSExist {
 
-	public static boolean exist(int[] sortedArr, int num) {
-		if (sortedArr == null || sortedArr.length == 0) {
+	// arr保证有序
+	public static boolean find(int[] arr, int num) {
+		if (arr == null || arr.length == 0) {
 			return false;
 		}
 		int L = 0;
-		int R = sortedArr.length - 1;
-		int mid = 0;
-		// L..R
-		while (L < R) { // L..R 至少两个数的时候
-			mid = L + ((R - L) >> 1);
-			if (sortedArr[mid] == num) {
+		int R = arr.length - 1;
+		while (L <= R) {
+			int mid = (L + R) / 2;
+			if (arr[mid] == num) {
 				return true;
-			} else if (sortedArr[mid] > num) {
-				R = mid - 1;
-			} else {
+			} else if (arr[mid] < num) {
 				L = mid + 1;
+			} else {
+				R = mid - 1;
 			}
 		}
-		return sortedArr[L] == num;
+		return false;
 	}
-	
+
 	// for test
 	public static boolean test(int[] sortedArr, int num) {
-		for(int cur : sortedArr) {
-			if(cur == num) {
+		for (int cur : sortedArr) {
+			if (cur == num) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	
+
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
@@ -44,7 +42,7 @@ public class Code01_BSExist {
 		}
 		return arr;
 	}
-	
+
 	public static void main(String[] args) {
 		int testTime = 500000;
 		int maxSize = 10;
@@ -54,7 +52,8 @@ public class Code01_BSExist {
 			int[] arr = generateRandomArray(maxSize, maxValue);
 			Arrays.sort(arr);
 			int value = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
-			if (test(arr, value) != exist(arr, value)) {
+			if (test(arr, value) != find(arr, value)) {
+				System.out.println("出错了！");
 				succeed = false;
 				break;
 			}
