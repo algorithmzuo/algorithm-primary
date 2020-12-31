@@ -49,6 +49,7 @@ public class Code05_AddTwoNumbers {
 		return l;
 	}
 
+	// 求链表长度
 	public static int listLength(ListNode head) {
 		int len = 0;
 		while (head != null) {

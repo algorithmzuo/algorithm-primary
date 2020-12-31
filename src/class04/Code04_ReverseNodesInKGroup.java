@@ -15,8 +15,10 @@ public class Code04_ReverseNodesInKGroup {
 		if (end == null) {
 			return head;
 		}
+		// 第一组凑齐了！
 		head = end;
 		reverse(start, end);
+		// 上一组的结尾节点
 		ListNode lastEnd = start;
 		while (lastEnd.next != null) {
 			start = lastEnd.next;

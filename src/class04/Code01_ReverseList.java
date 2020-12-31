@@ -175,6 +175,11 @@ public class Code01_ReverseList {
 		return true;
 	}
 
+	
+	public static void f(Node head) {
+		head = head.next;
+	}
+	
 	// for test
 	public static void main(String[] args) {
 		int len = 50;

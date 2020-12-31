@@ -9,13 +9,13 @@ public class Code06_MergeTwoSortedLinkedList {
 		public ListNode next;
 	}
 
-	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-		if (l1 == null || l2 == null) {
-			return l1 == null ? l2 : l1;
+	public static ListNode mergeTwoLists(ListNode head1, ListNode head2) {
+		if (head1 == null || head2 == null) {
+			return head1 == null ? head2 : head1;
 		}
-		ListNode head = l1.val <= l2.val ? l1 : l2;
+		ListNode head = head1.val <= head2.val ? head1 : head2;
 		ListNode cur1 = head.next;
-		ListNode cur2 = head == l1 ? l2 : l1;
+		ListNode cur2 = head == head1 ? head2 : head1;
 		ListNode pre = head;
 		while (cur1 != null && cur2 != null) {
 			if (cur1.val <= cur2.val) {
