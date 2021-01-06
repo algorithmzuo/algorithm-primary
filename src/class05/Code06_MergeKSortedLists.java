@@ -3,6 +3,7 @@ package class05;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+// 测试链接：https://leetcode.com/problems/merge-k-sorted-lists/
 public class Code06_MergeKSortedLists {
 
 	public static class ListNode {
