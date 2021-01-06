@@ -41,7 +41,7 @@ public class Code03_BitAddMinusMultiDiv {
 		int x = isNeg(a) ? negNum(a) : a;
 		int y = isNeg(b) ? negNum(b) : b;
 		int res = 0;
-		for (int i = 31; i >= 0; i = minus(i, 1)) {
+		for (int i = 30; i >= 0; i = minus(i, 1)) {
 			if ((x >> i) >= y) {
 				res |= (1 << i);
 				x = minus(x, y << i);
