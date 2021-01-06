@@ -41,7 +41,7 @@ public class Code03_BitAddMinusMultiDiv {
 		int x = isNeg(a) ? negNum(a) : a;
 		int y = isNeg(b) ? negNum(b) : b;
 		int res = 0;
-		for (int i = 31; i > negNum(1); i = minus(i, 1)) {
+		for (int i = 31; i >= 0; i = minus(i, 1)) {
 			if ((x >> i) >= y) {
 				res |= (1 << i);
 				x = minus(x, y << i);
@@ -51,17 +51,20 @@ public class Code03_BitAddMinusMultiDiv {
 	}
 
 	public static int divide(int dividend, int divisor) {
-		if (divisor == Integer.MIN_VALUE) {
-			return dividend == Integer.MIN_VALUE ? 1 : 0;
-		}
-		if (dividend == Integer.MIN_VALUE) {
+		if (dividend == Integer.MIN_VALUE && divisor == Integer.MIN_VALUE) {
+			return 1;
+		} else if (divisor == Integer.MIN_VALUE) {
+			return 0;
+		} else if (dividend == Integer.MIN_VALUE) {
 			if (divisor == negNum(1)) {
 				return Integer.MAX_VALUE;
+			} else {
+				int ans = div(add(dividend, 1), divisor);
+				return add(ans, div(minus(dividend, multi(ans, divisor)), divisor));
 			}
-			int res = div(add(dividend, 1), divisor);
-			return add(res, div(minus(dividend, multi(res, divisor)), divisor));
+		} else {
+			return div(dividend, divisor);
 		}
-		return div(dividend, divisor);
 	}
 
 }
