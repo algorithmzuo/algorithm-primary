@@ -15,7 +15,7 @@ public class Code01_MergeKSortedLists {
 
 		@Override
 		public int compare(ListNode o1, ListNode o2) {
-			return o1.val - o2.val;
+			return o1.val - o2.val; 
 		}
 
 	}

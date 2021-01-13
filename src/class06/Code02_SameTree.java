@@ -16,6 +16,7 @@ public class Code02_SameTree {
 		if (p == null && q == null) {
 			return true;
 		}
+		// 都不为空
 		return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 	}
 

@@ -9,6 +9,7 @@ public class Code04_MaximumDepthOfBinaryTree {
 		public TreeNode right;
 	}
 
+	// 以root为头的树，最大高度是多少返回！
 	public static int maxDepth(TreeNode root) {
 		if (root == null) {
 			return 0;
