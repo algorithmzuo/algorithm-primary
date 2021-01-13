@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Code08_AverageOfLevelsInBinaryTree {
+// 测试链接：https://leetcode.com/problems/binary-tree-level-order-traversal-ii
+public class Code06_BinaryTreeLevelOrderTraversalII {
 
 	public static class TreeNode {
 		public int val;
@@ -16,8 +17,8 @@ public class Code08_AverageOfLevelsInBinaryTree {
 		}
 	}
 
-	public static List<Double> averageOfLevels(TreeNode root) {
-		List<Double> ans = new LinkedList<>();
+	public List<List<Integer>> levelOrderBottom(TreeNode root) {
+		List<List<Integer>> ans = new LinkedList<>();
 		if (root == null) {
 			return ans;
 		}
@@ -25,10 +26,10 @@ public class Code08_AverageOfLevelsInBinaryTree {
 		queue.add(root);
 		while (!queue.isEmpty()) {
 			int size = queue.size();
-			double sum = 0D;
+			List<Integer> curAns = new LinkedList<>();
 			for (int i = 0; i < size; i++) {
 				TreeNode curNode = queue.poll();
-				sum += curNode.val;
+				curAns.add(curNode.val);
 				if (curNode.left != null) {
 					queue.add(curNode.left);
 				}
@@ -36,7 +37,7 @@ public class Code08_AverageOfLevelsInBinaryTree {
 					queue.add(curNode.right);
 				}
 			}
-			ans.add(sum / size);
+			ans.add(0, curAns);
 		}
 		return ans;
 	}

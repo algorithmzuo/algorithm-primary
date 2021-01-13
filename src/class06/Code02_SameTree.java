@@ -1,7 +1,7 @@
 package class06;
 
 // 测试链接：https://leetcode.com/problems/same-tree
-public class Code03_SameTree {
+public class Code02_SameTree {
 
 	public static class TreeNode {
 		public int val;

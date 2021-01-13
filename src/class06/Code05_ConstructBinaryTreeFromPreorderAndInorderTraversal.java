@@ -2,7 +2,8 @@ package class06;
 
 import java.util.HashMap;
 
-public class Code06_ConstructBinaryTreeFromPreorderAndInorderTraversal {
+//测试链接：https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+public class Code05_ConstructBinaryTreeFromPreorderAndInorderTraversal {
 
 	public static class TreeNode {
 		int val;

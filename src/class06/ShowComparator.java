@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeMap;
 
-public class Code01_Comparator {
+public class ShowComparator {
 
 	public static class Student {
 		public String name;

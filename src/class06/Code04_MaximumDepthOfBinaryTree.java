@@ -1,7 +1,7 @@
 package class06;
 
 // 测试链接：https://leetcode.com/problems/maximum-depth-of-binary-tree
-public class Code05_MaximumDepthOfBinaryTree {
+public class Code04_MaximumDepthOfBinaryTree {
 
 	public static class TreeNode {
 		public int val;

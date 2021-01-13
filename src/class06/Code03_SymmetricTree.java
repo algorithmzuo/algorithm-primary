@@ -1,7 +1,7 @@
 package class06;
 
 // 测试链接：https://leetcode.com/problems/symmetric-tree
-public class Code04_SymmetricTree {
+public class Code03_SymmetricTree {
 
 	public static class TreeNode {
 		public int val;

@@ -1,6 +1,6 @@
 package class06;
 
-public class TraversalBT {
+public class TraversalBinaryTree {
 
 	public static class Node {
 		public int value;
