@@ -1,6 +1,6 @@
 package class07;
 
-public class Code06_IsBinarySearchTree {
+public class Code05_IsBinarySearchTree {
 
 	public static class TreeNode {
 		public int val;
