@@ -7,7 +7,6 @@ public class Code01_GetMax {
 	}
 
 	public static int sign(int n) {
-
 		return flip((n >> 31) & 1);
 	}
 
