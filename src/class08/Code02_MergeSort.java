@@ -10,10 +10,12 @@ public class Code02_MergeSort {
 		process(arr, 0, arr.length - 1);
 	}
 
+	// arr[L...R]范围上，请让这个范围上的数，有序！
 	public static void process(int[] arr, int L, int R) {
 		if (L == R) {
 			return;
 		}
+		// int mid = (L + R) / 2
 		int mid = L + ((R - L) >> 1);
 		process(arr, L, mid);
 		process(arr, mid + 1, R);
@@ -28,6 +30,8 @@ public class Code02_MergeSort {
 		while (p1 <= M && p2 <= R) {
 			help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
 		}
+		// 要么p1越界，要么p2越界
+		// 不可能出现：共同越界
 		while (p1 <= M) {
 			help[i++] = arr[p1++];
 		}
@@ -39,30 +43,69 @@ public class Code02_MergeSort {
 		}
 	}
 
-	// 非递归方法实现
 	public static void mergeSort2(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
+		int step = 1;
 		int N = arr.length;
-		int mergeSize = 1;
-		while (mergeSize < N) {
+		while (step < N) {
 			int L = 0;
 			while (L < N) {
-				if (mergeSize >= N - L) {
+				int M = 0;
+				if (N - L >= step) {
+					M = L + step - 1;
+				} else {
+					M = N - 1;
+				}
+				if (M == N - 1) {
 					break;
 				}
-				int M = L + mergeSize - 1;
-				int R = M + Math.min(mergeSize, N - M - 1);
+				int R = 0;
+				if (N - 1 - M >= step) {
+					R = M + step;
+				} else {
+					R = N - 1;
+				}
 				merge(arr, L, M, R);
-				L = R + 1;
+				if (R == N - 1) {
+					break;
+				} else {
+					L = R + 1;
+				}
 			}
-			if (mergeSize > N / 2) {
+			if (step > N / 2) {
 				break;
 			}
-			mergeSize <<= 1;
+			step *= 2;
 		}
+
 	}
+
+	// 非递归方法实现
+//	public static void mergeSort2(int[] arr) {
+//		if (arr == null || arr.length < 2) {
+//			return;
+//		}
+//		int N = arr.length;
+//		int mergeSize = 1;
+//		while (mergeSize < N) {
+//			int L = 0;
+//			while (L < N) {
+//				if (mergeSize >= N - L) {
+//					break;
+//				}
+//				int M = L + mergeSize - 1;
+//				int R = M + Math.min(mergeSize, N - M - 1);
+//				merge(arr, L, M, R);
+//				L = R + 1;
+//			}
+//			if (mergeSize > N / 2) {
+//				break;
+//			}
+//			mergeSize <<= 1;
+//		}
+//	}
 
 	// for test
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
