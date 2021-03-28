@@ -52,7 +52,7 @@ public class Code03_Comp {
 		return ans;
 	}
 
-	// arr1和arr2一定等长
+	// 判断数组是否已排序
 	public static boolean isSorted(int[] arr) {
 		if (arr.length < 2) {
 			return true;
