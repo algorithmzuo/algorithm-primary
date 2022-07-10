@@ -1,5 +1,6 @@
 package class08;
 
+// 可以去体系学习班学习
 public class Code02_MergeSort {
 
 	// 递归方法实现

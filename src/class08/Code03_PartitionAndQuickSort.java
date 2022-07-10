@@ -2,6 +2,7 @@ package class08;
 
 import java.util.Stack;
 
+// 可以去体系学习班学习
 public class Code03_PartitionAndQuickSort {
 
 	public static void splitNum1(int[] arr) {
